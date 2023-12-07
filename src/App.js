@@ -9,7 +9,6 @@ function App() {
   const [personData, setPersonData] = useState([]);
   const [educationData, setEducationData] = useState([]);
 
-  useEffect(() => {
     const fetchData = async () => {
       const personsDBInstance = await getDocs(collection(database, 'persons'));
       const fetchedPersonData = personsDBInstance.docs.map(doc => doc.data());
@@ -20,8 +19,6 @@ function App() {
       setEducationData(fetchedEducationData);
     };
     fetchData();
-  }, []);
-
 
   return (
     <div className="App">
